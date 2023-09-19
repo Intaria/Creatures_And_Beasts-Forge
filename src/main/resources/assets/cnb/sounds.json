@@ -35,41 +35,6 @@
       }
     ]
   },
-  "entity.cindershell.ambient": {
-    "subtitle": "entity.cindershell.ambient",
-    "sounds": [
-      {
-        "name": "cnb:entity/cindershell/entity.cindershell.ambient"
-      },
-      {
-        "name": "cnb:entity/cindershell/entity.cindershell.ambient_1"
-      }
-    ]
-  },
-  "entity.cindershell.hurt": {
-    "subtitle": "entity.cindershell.hurt",
-    "sounds": [
-      {
-        "name": "cnb:entity/cindershell/entity.cindershell.hurt"
-      }
-    ]
-  },
-  "entity.cindershell_adult.eat": {
-    "subtitle": "entity.cindershell.eat",
-    "sounds": [
-      {
-        "name": "cnb:entity/cindershell/entity.cindershell_adult.eat"
-      }
-    ]
-  },
-  "entity.cindershell_baby.eat": {
-    "subtitle": "entity.cindershell.eat",
-    "sounds": [
-      {
-        "name": "cnb:entity/cindershell/entity.cindershell_baby.eat"
-      }
-    ]
-  },
   "entity.sporeling_overworld.ambient": {
     "subtitle": "entity.sporeling_overworld.ambient",
     "sounds": [
@@ -317,14 +282,6 @@
     "sounds": [
       {
         "name": "cnb:entity/cactem/entity.cactem.heal"
-      }
-    ]
-  },
-  "item.heal_spell_book.player_heal": {
-    "subtitle": "item.heal_spell_book.player_heal",
-    "sounds": [
-      {
-        "name": "cnb:item/item.heal_spell_book.player_heal"
       }
     ]
   },

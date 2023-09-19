@@ -14,11 +14,6 @@ public class CNBSoundEvents {
     public static final RegistryObject<SoundEvent> LITTLE_GREBE_HURT = SOUND_EVENTS.register("entity.little_grebe.hurt", () -> new SoundEvent(new ResourceLocation(CreaturesAndBeasts.MOD_ID, "entity.little_grebe.hurt")));
     public static final RegistryObject<SoundEvent> LITTLE_GREBE_CHICK_AMBIENT = SOUND_EVENTS.register("entity.little_grebe_chick.ambient", () -> new SoundEvent(new ResourceLocation(CreaturesAndBeasts.MOD_ID, "entity.little_grebe_chick.ambient")));
 
-    public static final RegistryObject<SoundEvent> CINDERSHELL_AMBIENT = SOUND_EVENTS.register("entity.cindershell.ambient", () -> new SoundEvent(new ResourceLocation(CreaturesAndBeasts.MOD_ID, "entity.cindershell.ambient")));
-    public static final RegistryObject<SoundEvent> CINDERSHELL_HURT = SOUND_EVENTS.register("entity.cindershell.hurt", () -> new SoundEvent(new ResourceLocation(CreaturesAndBeasts.MOD_ID, "entity.cindershell.hurt")));
-    public static final RegistryObject<SoundEvent> CINDERSHELL_ADULT_EAT = SOUND_EVENTS.register("entity.cindershell_adult.eat", () -> new SoundEvent(new ResourceLocation(CreaturesAndBeasts.MOD_ID, "entity.cindershell_adult.eat")));
-    public static final RegistryObject<SoundEvent> CINDERSHELL_BABY_EAT = SOUND_EVENTS.register("entity.cindershell_baby.eat", () -> new SoundEvent(new ResourceLocation(CreaturesAndBeasts.MOD_ID, "entity.cindershell_baby.eat")));
-
     public static final RegistryObject<SoundEvent> SPORELING_OVERWORLD_AMBIENT = SOUND_EVENTS.register("entity.sporeling_overworld.ambient", () -> new SoundEvent(new ResourceLocation(CreaturesAndBeasts.MOD_ID, "entity.sporeling_overworld.ambient")));
     public static final RegistryObject<SoundEvent> SPORELING_OVERWORLD_HURT = SOUND_EVENTS.register("entity.sporeling_overworld.hurt", () -> new SoundEvent(new ResourceLocation(CreaturesAndBeasts.MOD_ID, "entity.sporeling_overworld.hurt")));
     public static final RegistryObject<SoundEvent> SPORELING_NETHER_AMBIENT = SOUND_EVENTS.register("entity.sporeling_nether.ambient", () -> new SoundEvent(new ResourceLocation(CreaturesAndBeasts.MOD_ID, "entity.sporeling_nether.ambient")));
@@ -47,8 +42,6 @@ public class CNBSoundEvents {
     public static final RegistryObject<SoundEvent> CACTEM_AMBIENT = SOUND_EVENTS.register("entity.cactem.ambient", () -> new SoundEvent(new ResourceLocation(CreaturesAndBeasts.MOD_ID, "entity.cactem.ambient")));
     public static final RegistryObject<SoundEvent> CACTEM_HURT = SOUND_EVENTS.register("entity.cactem.hurt", () -> new SoundEvent(new ResourceLocation(CreaturesAndBeasts.MOD_ID, "entity.cactem.hurt")));
     public static final RegistryObject<SoundEvent> CACTEM_HEAL = SOUND_EVENTS.register("entity.cactem.heal", () -> new SoundEvent(new ResourceLocation(CreaturesAndBeasts.MOD_ID, "entity.cactem.heal")));
-
-    public static final RegistryObject<SoundEvent> PLAYER_HEAL = SOUND_EVENTS.register("item.heal_spell_book.player_heal", () -> new SoundEvent(new ResourceLocation(CreaturesAndBeasts.MOD_ID, "item.heal_spell_book.player_heal")));
 
     public static final RegistryObject<SoundEvent> SPEAR_THROW = SOUND_EVENTS.register("item.cactem_spear.throw", () -> new SoundEvent(new ResourceLocation(CreaturesAndBeasts.MOD_ID, "item.cactem_spear.throw")));
 

@@ -1,6 +1,5 @@
 package com.cgessinger.creaturesandbeasts;
 
-import com.cgessinger.creaturesandbeasts.capabilities.CinderSwordCapability;
 import com.cgessinger.creaturesandbeasts.client.CNBClient;
 import com.cgessinger.creaturesandbeasts.config.CNBConfig;
 import com.cgessinger.creaturesandbeasts.events.CNBEvents;
@@ -11,7 +10,6 @@ import com.cgessinger.creaturesandbeasts.init.CNBEntityTypes;
 import com.cgessinger.creaturesandbeasts.init.CNBItems;
 import com.cgessinger.creaturesandbeasts.init.CNBLilytadTypes;
 import com.cgessinger.creaturesandbeasts.init.CNBLizardTypes;
-import com.cgessinger.creaturesandbeasts.init.CNBLootModifiers;
 import com.cgessinger.creaturesandbeasts.init.CNBMinipadTypes;
 import com.cgessinger.creaturesandbeasts.init.CNBPaintingTypes;
 import com.cgessinger.creaturesandbeasts.init.CNBParticleTypes;
@@ -27,7 +25,6 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.common.capabilities.RegisterCapabilitiesEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.common.Mod;
@@ -57,7 +54,6 @@ public class CreaturesAndBeasts {
 
         eventBus.addListener(this::commonSetup);
         eventBus.addListener(this::clientSetup);
-        eventBus.addListener(this::registerCapabilities);
 
         CNBParticleTypes.PARTICLE_TYPES.register(eventBus);
         CNBBlocks.BLOCKS.register(eventBus);
@@ -66,7 +62,6 @@ public class CreaturesAndBeasts {
         CNBPaintingTypes.PAINTINGS.register(eventBus);
         CNBSoundEvents.SOUND_EVENTS.register(eventBus);
         CNBEntityTypes.ENTITY_TYPES.register(eventBus);
-        CNBLootModifiers.LOOT_MODIFIERS.register(eventBus);
         CNBBiomeModifiers.BIOME_MODIFIERS.register(eventBus);
 
         CNBSporelingTypes.registerAll();
@@ -109,9 +104,5 @@ public class CreaturesAndBeasts {
         event.enqueueWork(() -> {
             ItemProperties.register(CNBItems.CACTEM_SPEAR.get(), new ResourceLocation("throwing"), (item, resourceLocation, entity, itemPropertyFunction) -> entity != null && entity.isUsingItem() && entity.getUseItem() == item ? 1.0F : 0.0F);
         });
-    }
-
-    private void registerCapabilities(RegisterCapabilitiesEvent event) {
-        CinderSwordCapability.register(event);
     }
 }

@@ -205,16 +205,6 @@ public class SporelingEntity extends TamableAnimal implements IAnimatable {
     public InteractionResult mobInteract(Player player, InteractionHand hand) {
         ItemStack itemstack = player.getItemInHand(hand);
         if (this.level.isClientSide) {
-            if (this.isTame()) {
-                InteractionResult interactionresult = super.mobInteract(player, hand);
-                if (!interactionresult.consumesAction() && this.isOwnedBy(player)) {
-                    if (player.isSecondaryUseActive() && player.getPassengers().isEmpty() && player.getItemBySlot(EquipmentSlot.CHEST).is(CNBItems.SPORELING_BACKPACK.get())) {
-                        this.startRiding(player);
-                        return InteractionResult.SUCCESS;
-                    }
-                }
-            }
-
             boolean flag = this.isOwnedBy(player) || this.isTame() || itemstack.is(Items.BONE) && !this.isTame();
             return flag ? InteractionResult.CONSUME : InteractionResult.PASS;
         } else {
@@ -231,14 +221,10 @@ public class SporelingEntity extends TamableAnimal implements IAnimatable {
 
                 InteractionResult interactionresult = super.mobInteract(player, hand);
                 if (!interactionresult.consumesAction() && this.isOwnedBy(player)) {
-                    if (player.isSecondaryUseActive() && player.getPassengers().isEmpty() && player.getItemBySlot(EquipmentSlot.CHEST).is(CNBItems.SPORELING_BACKPACK.get())) {
-                        this.startRiding(player);
-                    } else {
                         this.setOrderedToSit(!this.isOrderedToSit());
                         this.jumping = false;
                         this.navigation.stop();
                         this.setTarget(null);
-                    }
                     return InteractionResult.SUCCESS;
                 }
 
@@ -509,26 +495,9 @@ public class SporelingEntity extends TamableAnimal implements IAnimatable {
         return PlayState.CONTINUE;
     }
 
-    public <E extends IAnimatable> PlayState backpackAnimationPredicate(AnimationEvent<E> event) {
-        Entity vehicle = this.getVehicle();
-
-        if (vehicle != null) {
-            if (!vehicle.isOnGround() && vehicle.fallDistance > 0.1F) {
-                event.getController().setAnimation(new AnimationBuilder().addAnimation("sporeling_backpack_air"));
-            } else {
-                event.getController().setAnimation(new AnimationBuilder().addAnimation("sporeling_backpack_idle"));
-            }
-            return PlayState.CONTINUE;
-        }
-
-        event.getController().markNeedsReload();
-        return PlayState.STOP;
-    }
-
     @Override
     public void registerControllers(AnimationData animationData) {
         animationData.addAnimationController(new AnimationController<>(this, "controller", 0, this::animationPredicate));
-        animationData.addAnimationController(new AnimationController<>(this, "backpackController", 6, this::backpackAnimationPredicate));
     }
 
     @Override

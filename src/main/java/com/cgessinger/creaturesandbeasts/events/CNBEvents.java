@@ -3,7 +3,6 @@ package com.cgessinger.creaturesandbeasts.events;
 import com.cgessinger.creaturesandbeasts.CreaturesAndBeasts;
 import com.cgessinger.creaturesandbeasts.config.CNBConfig;
 import com.cgessinger.creaturesandbeasts.entities.CactemEntity;
-import com.cgessinger.creaturesandbeasts.entities.CindershellEntity;
 import com.cgessinger.creaturesandbeasts.entities.EndWhaleEntity;
 import com.cgessinger.creaturesandbeasts.entities.LilytadEntity;
 import com.cgessinger.creaturesandbeasts.entities.LittleGrebeEntity;
@@ -14,7 +13,6 @@ import com.cgessinger.creaturesandbeasts.entities.ThrownCactemSpearEntity;
 import com.cgessinger.creaturesandbeasts.entities.YetiEntity;
 import com.cgessinger.creaturesandbeasts.init.CNBEntityTypes;
 import com.cgessinger.creaturesandbeasts.init.CNBItems;
-import com.cgessinger.creaturesandbeasts.items.HealSpellBookItem;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.IndirectEntityDamageSource;
@@ -42,7 +40,6 @@ public class CNBEvents {
 
     @SubscribeEvent
     public static void onEntityAttributeCreation(EntityAttributeCreationEvent event) {
-        event.put(CNBEntityTypes.CINDERSHELL.get(), CindershellEntity.createAttributes().build());
         event.put(CNBEntityTypes.SPORELING.get(), SporelingEntity.createAttributes().build());
         event.put(CNBEntityTypes.LITTLE_GREBE.get(), LittleGrebeEntity.createAttributes().build());
         event.put(CNBEntityTypes.LILYTAD.get(), LilytadEntity.createAttributes().build());
@@ -67,13 +64,6 @@ public class CNBEvents {
         DamageSource damageSource = event.getDamageSource();
         if (damageSource instanceof IndirectEntityDamageSource indirectDamage && indirectDamage.getDirectEntity() instanceof ThrownCactemSpearEntity thrownSpear) {
             event.setLootingLevel(EnchantmentHelper.getItemEnchantmentLevel(Enchantments.MOB_LOOTING, thrownSpear.getSpear()));
-        }
-    }
-
-    @SubscribeEvent
-    public void onItemUnequip(LivingEvent.LivingTickEvent event) {
-        if (event.getEntity() instanceof Player player && player.getFirstPassenger() instanceof SporelingEntity sporelingEntity && !player.getItemBySlot(EquipmentSlot.CHEST).is(CNBItems.SPORELING_BACKPACK.get())) {
-            sporelingEntity.stopRiding();
         }
     }
 
@@ -121,23 +111,6 @@ public class CNBEvents {
             event.setCost(CNBConfig.hideCost);
             event.setMaterialCost(1);
             event.setOutput(output);
-        } else if (event.getLeft().getItem() instanceof HealSpellBookItem && event.getRight().getItem() instanceof HealSpellBookItem && event.getLeft().sameItem(event.getRight())) {
-            ItemStack output;
-            int cost;
-            if (event.getLeft().is(CNBItems.HEAL_SPELL_BOOK_1.get())) {
-                output = new ItemStack(CNBItems.HEAL_SPELL_BOOK_2.get());
-                cost = 3;
-            } else if (event.getLeft().is(CNBItems.HEAL_SPELL_BOOK_2.get())) {
-                output = new ItemStack(CNBItems.HEAL_SPELL_BOOK_3.get());
-                cost = 6;
-            } else {
-                return;
-            }
-
-            output.setTag(event.getLeft().getOrCreateTag());
-            event.setCost(cost);
-            event.setOutput(output);
-            event.setMaterialCost(1);
         }
     }
 }
