@@ -73,8 +73,6 @@ public class SporelingSpawnEggItem extends ForgeSpawnEggItem {
 
             if (itemstack.is(CNBItems.SPORELING_OVERWORLD_EGG.get())) {
                 itemTag.putString("EggType", "Overworld");
-            } else if (itemstack.is(CNBItems.SPORELING_NETHER_EGG.get())) {
-                itemTag.putString("EggType", "Nether");
             }
 
             if (entitytype.spawn((ServerLevel)level, itemstack, context.getPlayer(), blockpos1, MobSpawnType.SPAWN_EGG, true, !Objects.equals(blockpos, blockpos1) && direction == Direction.UP) != null) {
@@ -107,8 +105,6 @@ public class SporelingSpawnEggItem extends ForgeSpawnEggItem {
 
                 if (itemstack.sameItem(CNBItems.SPORELING_OVERWORLD_EGG.get().getDefaultInstance())) {
                     itemTag.putString("EggType", "Overworld");
-                } else if (itemstack.sameItem(CNBItems.SPORELING_NETHER_EGG.get().getDefaultInstance())) {
-                    itemTag.putString("EggType", "Nether");
                 }
 
                 if (entitytype.spawn((ServerLevel)level, itemstack, player, blockpos, MobSpawnType.SPAWN_EGG, false, false) == null) {

@@ -17,11 +17,7 @@ public class CNBSporelingTypes {
 
     public static final SporelingType RED_OVERWORLD = registerWithCNBDirectory(MOD_ID, "red_overworld", "red_overworld", FRIENDLY);
     public static final SporelingType BROWN_OVERWORLD = registerWithCNBDirectory(MOD_ID, "brown_overworld", "brown_overworld", FRIENDLY);
-    public static final SporelingType RED_NETHER = registerWithCNBDirectory(MOD_ID, "red_nether", "red_nether", HOSTILE);
-    public static final SporelingType BROWN_NETHER = registerWithCNBDirectory(MOD_ID, "brown_nether", "brown_nether", HOSTILE);
-    public static final SporelingType WARPED_FUNGUS = registerWithCNBDirectory(MOD_ID, "warped_fungus", "nether", NEUTRAL);
-    public static final SporelingType CRIMSON_FUNGUS = registerWithCNBDirectory(MOD_ID, "crimson_fungus", "nether", NEUTRAL);
-
+    
     private static SporelingType registerWithCNBDirectory(String namespace, String name, String modelName, SporelingType.SporelingHostility hostility) {
         return register(new SporelingType(new ResourceLocation(namespace, name), new ResourceLocation(MOD_ID, "geo/entity/sporeling/sporeling_" + modelName + ".geo.json"), new ResourceLocation(MOD_ID, "textures/entity/sporeling/sporeling_" + name + ".png"), hostility));
 

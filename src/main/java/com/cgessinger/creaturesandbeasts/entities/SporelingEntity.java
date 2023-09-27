@@ -258,11 +258,7 @@ public class SporelingEntity extends TamableAnimal implements IAnimatable {
 
     @Override
     public ItemStack getPickedResult(HitResult target) {
-        if (this.getSporelingType().getHostility().equals(FRIENDLY)) {
-            return new ItemStack(CNBItems.SPORELING_OVERWORLD_EGG.get());
-        } else {
-            return new ItemStack(CNBItems.SPORELING_NETHER_EGG.get());
-        }
+        return new ItemStack(CNBItems.SPORELING_OVERWORLD_EGG.get());
     }
 
     @Override
@@ -285,11 +281,7 @@ public class SporelingEntity extends TamableAnimal implements IAnimatable {
     }
 
     public static boolean checkSporelingSpawnRules(EntityType<SporelingEntity> entity, LevelAccessor worldIn, MobSpawnType mobSpawnType, BlockPos pos, RandomSource rand) {
-        if (worldIn.getBiome(pos).is(BiomeTags.IS_NETHER)) {
-            return worldIn.getDifficulty() != Difficulty.PEACEFUL;
-        } else {
-            return worldIn.getRawBrightness(pos, 0) > 8;
-        }
+        return worldIn.getRawBrightness(pos, 0) > 8;
     }
 
     @Override
@@ -308,43 +300,17 @@ public class SporelingEntity extends TamableAnimal implements IAnimatable {
 
         if (reason == MobSpawnType.SPAWN_EGG && dataTag != null && dataTag.contains("EggType")) {
             String eggType = dataTag.getString("EggType");
-            if (eggType.equals("Nether")) {
-                if (biome.is(Biomes.CRIMSON_FOREST)) {
-                    this.setSporelingType(CNBSporelingTypes.CRIMSON_FUNGUS);
-                } else if (biome.is(Biomes.WARPED_FOREST)) {
-                    this.setSporelingType(CNBSporelingTypes.WARPED_FUNGUS);
-                } else {
-                    if (random.nextBoolean()) {
-                        this.setSporelingType(CNBSporelingTypes.RED_NETHER);
-                    } else {
-                        this.setSporelingType(CNBSporelingTypes.BROWN_NETHER);
-                    }
-                }
-            } else {
-                if (random.nextBoolean()) {
+            if (random.nextBoolean()) {
                     this.setSporelingType(CNBSporelingTypes.RED_OVERWORLD);
                 } else {
                     this.setSporelingType(CNBSporelingTypes.BROWN_OVERWORLD);
                 }
-            }
         } else {
-            if (biome.is(Biomes.CRIMSON_FOREST)) {
-                this.setSporelingType(CNBSporelingTypes.CRIMSON_FUNGUS);
-            } else if (biome.is(Biomes.WARPED_FOREST)) {
-                this.setSporelingType(CNBSporelingTypes.WARPED_FUNGUS);
-            } else if (biome.is(BiomeTags.IS_NETHER)) {
-                if (random.nextBoolean()) {
-                    this.setSporelingType(CNBSporelingTypes.RED_NETHER);
-                } else {
-                    this.setSporelingType(CNBSporelingTypes.BROWN_NETHER);
-                }
-            } else {
-                if (random.nextBoolean()) {
+            if (random.nextBoolean()) {
                     this.setSporelingType(CNBSporelingTypes.RED_OVERWORLD);
                 } else {
                     this.setSporelingType(CNBSporelingTypes.BROWN_OVERWORLD);
                 }
-            }
         }
 
         this.reassessGoals();
@@ -400,11 +366,6 @@ public class SporelingEntity extends TamableAnimal implements IAnimatable {
     @Override
     protected SoundEvent getHurtSound(DamageSource damageSourceIn) {
         switch (this.getSporelingType().getHostility()) {
-            case HOSTILE:
-                return CNBSoundEvents.SPORELING_NETHER_HURT.get();
-            case NEUTRAL:
-                return CNBSoundEvents.SPORELING_WARPED_HURT.get();
-            case FRIENDLY:
             default:
                 return CNBSoundEvents.SPORELING_OVERWORLD_HURT.get();
         }
@@ -414,11 +375,6 @@ public class SporelingEntity extends TamableAnimal implements IAnimatable {
     @Override
     protected SoundEvent getDeathSound() {
         switch (this.getSporelingType().getHostility()) {
-            case HOSTILE:
-                return CNBSoundEvents.SPORELING_NETHER_HURT.get();
-            case NEUTRAL:
-                return CNBSoundEvents.SPORELING_WARPED_HURT.get();
-            case FRIENDLY:
             default:
                 return CNBSoundEvents.SPORELING_OVERWORLD_HURT.get();
         }
@@ -428,11 +384,6 @@ public class SporelingEntity extends TamableAnimal implements IAnimatable {
     @Override
     protected SoundEvent getAmbientSound() {
         switch (this.getSporelingType().getHostility()) {
-            case HOSTILE:
-                return CNBSoundEvents.SPORELING_NETHER_AMBIENT.get();
-            case NEUTRAL:
-                return CNBSoundEvents.SPORELING_WARPED_AMBIENT.get();
-            case FRIENDLY:
             default:
                 return CNBSoundEvents.SPORELING_OVERWORLD_AMBIENT.get();
         }

@@ -37,33 +37,6 @@
       "max": 5,
       "cost": 0.0,
       "budget": 0.0
-    },
-    {
-      "biomes": "minecraft:nether_wastes",
-      "category": "monster",
-      "weight": 60,
-      "min": 2,
-      "max": 4,
-      "cost": 0.0,
-      "budget": 0.0
-    },
-    {
-      "biomes": "minecraft:warped_forest",
-      "category": "monster",
-      "weight": 2,
-      "min": 2,
-      "max": 4,
-      "cost": 0.0,
-      "budget": 0.0
-    },
-    {
-      "biomes": "minecraft:crimson_forest",
-      "category": "monster",
-      "weight": 120,
-      "min": 2,
-      "max": 4,
-      "cost": 0.0,
-      "budget": 0.0
     }
   ]
 }

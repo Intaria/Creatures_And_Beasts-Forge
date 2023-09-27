@@ -57,50 +57,6 @@
       }
     ]
   },
-  "entity.sporeling_nether.ambient": {
-    "subtitle": "entity.sporeling_nether.ambient",
-    "sounds": [
-      {
-        "name": "cnb:entity/sporeling/entity.sporeling_nether.ambient"
-      },
-      {
-        "name": "cnb:entity/sporeling/entity.sporeling_nether.ambient_1"
-      }
-    ]
-  },
-  "entity.sporeling_nether.hurt": {
-    "subtitle": "entity.sporeling_nether.hurt",
-    "sounds": [
-      {
-        "name": "cnb:entity/sporeling/entity.sporeling_nether.hurt"
-      },
-      {
-        "name": "cnb:entity/sporeling/entity.sporeling_nether.hurt_1"
-      }
-    ]
-  },
-  "entity.sporeling_warped.ambient": {
-    "subtitle": "entity.sporeling_warped.ambient",
-    "sounds": [
-      {
-        "name": "cnb:entity/sporeling/entity.sporeling_warped.ambient"
-      },
-      {
-        "name": "cnb:entity/sporeling/entity.sporeling_warped.ambient_1"
-      }
-    ]
-  },
-  "entity.sporeling_warped.hurt": {
-    "subtitle": "entity.sporeling_warped.hurt",
-    "sounds": [
-      {
-        "name": "cnb:entity/sporeling/entity.sporeling_warped.hurt"
-      },
-      {
-        "name": "cnb:entity/sporeling/entity.sporeling_warped.hurt_1"
-      }
-    ]
-  },
   "entity.sporeling.bite": {
     "subtitle": "entity.sporeling.bite",
     "sounds": [
